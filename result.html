@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Results</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: repeating-linear-gradient(135deg,
+    #fdf6f9,
+    #fdf6f9 10px,
+    #fce1f1 10px,
+    #fce1f1 12px
+);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #b6416c;
+        }
+
+        .recommendation {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffe4ec;
+            color: #7a2e4d;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #c94f7c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Check-In Result</h1>
+
+        <div class="recommendation">
+            {{ recommendation }}
+        </div>
+
+        <a href="/">← Back to check-in</a>
+    </div>
+</body>
+</html>
