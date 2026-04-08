@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wellness Check-In</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: repeating-linear-gradient(45deg,
+    #fdf6f9,
+    #fdf6f9 10px,
+    #fce1f1 10px,
+    #fce1f1 12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: palevioletred;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: palevioletred;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wellness Check-In</h1>
+
+        <form action="/submit" method="POST">
+            <label>Stress level (1-10)</label>
+            <input type="number" name="stress" min="1" max="10" required>
+
+            <label>Hours of sleep</label>
+            <input type="number" name="sleep" step="0.5" required>
+
+            <label>Workload (1-10)</label>
+            <input type="number" name="workload" min="1" max="10" required>
+
+            <label>Mood (1-10)</label>
+            <input type="number" name="mood" min="1" max="10" required>
+
+            <label>Caregiving hours</label>
+            <input type="number" name="caregiving_hours" step="0.5" required>
+
+            <button type="submit">Get Recommendation</button>
+        </form>
+    </div>
+</body>
+</html>
