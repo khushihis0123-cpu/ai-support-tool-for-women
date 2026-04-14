@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Results</title>
+    <title>Support Chat Result</title>
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
+            font-family: Arial, sans-serif;
             background: repeating-linear-gradient(135deg,
-    #fdf6f9,
-    #fdf6f9 10px,
+    #fce1f1,
     #fce1f1 10px,
-    #fce1f1 12px
+    #f4bdde 10px,
+    #f4bdde 12px
 );
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 40px;
         }
 
         .container {
-            background: white;
+            max-width: 800px;
+            margin: auto;
+            background: #fffcfe;
             padding: 30px;
-            width: 400px;
-            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
         }
 
-        h1 {
-            color: #b6416c;
+        h1, h2 {
+            color: #c45a8d;
         }
 
-        .recommendation {
-            margin-top: 20px;
-            padding: 15px;
-            background: #ffe4ec;
-            color: #7a2e4d;
-            font-weight: bold;
+        .bubble {
+            padding: 16px;
+            border-radius: 14px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .user {
+            background: #f9dcec;
+        }
+
+        .assistant {
+            background: #f3f0ff;
         }
 
         a {
             display: inline-block;
             margin-top: 20px;
-            color: #c94f7c;
             text-decoration: none;
+            color: #c45a8d;
             font-weight: bold;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <h1>Your Check-In Result</h1>
+        <h1>Support Chat</h1>
 
-        <div class="recommendation">
-            {{ recommendation }}
+        <h2>Your Message</h2>
+        <div class="bubble user">
+            {{ user_input }}
         </div>
 
-        <a href="/">← Back to check-in</a>
+        <h2>Response</h2>
+        <div class="bubble assistant">
+            {{ output }}
+        </div>
+
+        <a href="/">Ask another question</a>
     </div>
 </body>
 </html>
