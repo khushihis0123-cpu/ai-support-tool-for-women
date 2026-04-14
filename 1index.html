@@ -1,80 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Wellness Check-In</title>
+    <title>Support Chat</title>
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
-            background: repeating-linear-gradient(45deg,
-    #fdf6f9,
-    #fdf6f9 10px,
+            font-family: Arial, sans-serif;
+            background: repeating-linear-gradient(135deg,
+    #fce1f1,
     #fce1f1 10px,
-    #fce1f1 12px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+    #f4bdde 10px,
+    #f4bdde 12px
+);
+            padding: 40px;
+            text-align: center;
         }
 
         .container {
-            background: white;
+            max-width: 700px;
+            margin: auto;
+            background: #fffcfe;
             padding: 30px;
-            width: 400px;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
         }
 
         h1 {
-            text-align: center;
-            color: palevioletred;
+            color: #c45a8d;
         }
 
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        input {
+        textarea {
             width: 100%;
-            padding: 8px;
-            margin-top: 5px;
+            height: 140px;
+            padding: 12px;
             border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            resize: none;
+            margin-top: 20px;
         }
 
         button {
             margin-top: 20px;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            background-color: palevioletred;
+            background: #e67ab1;
             color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
         }
+
+        button:hover {
+            background: #d8649f;
+        }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <h1>Wellness Check-In</h1>
+        <h1>Wellness Support Chat</h1>
+        <p>Share how you're feeling and get a gentle supportive response.</p>
 
         <form action="/submit" method="POST">
-            <label>Stress level (1-10)</label>
-            <input type="number" name="stress" min="1" max="10" required>
-
-            <label>Hours of sleep</label>
-            <input type="number" name="sleep" step="0.5" required>
-
-            <label>Workload (1-10)</label>
-            <input type="number" name="workload" min="1" max="10" required>
-
-            <label>Mood (1-10)</label>
-            <input type="number" name="mood" min="1" max="10" required>
-
-            <label>Caregiving hours</label>
-            <input type="number" name="caregiving_hours" step="0.5" required>
-
-            <button type="submit">Get Recommendation</button>
+            <textarea name="message" placeholder="Type your message here..." required></textarea>
+            <br>
+            <button type="submit">Send</button>
         </form>
     </div>
 </body>
