@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Support Chat</title>
+    <title>Maternal Breastfeeding Support</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: repeating-linear-gradient(135deg,
-    #fce1f1,
-    #fce1f1 10px,
-    #f4bdde 10px,
-    #f4bdde 12px
-);
+            background: repeating-linear-gradient(
+                135deg,
+                #fce1f1,
+                #fce1f1 10px,
+                #f4bdde 10px,
+                #f4bdde 12px
+            );
             padding: 40px;
-            text-align: center;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 850px;
             margin: auto;
             background: #fffcfe;
             padding: 30px;
@@ -26,44 +26,94 @@
 
         h1 {
             color: #c45a8d;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .bubble {
+            padding: 16px;
+            border-radius: 14px;
+            margin-top: 15px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .user {
+            background: #f9dcec;
+        }
+
+        .assistant {
+            background: #f3f0ff;
         }
 
         textarea {
             width: 100%;
-            height: 140px;
-            padding: 12px;
+            height: 110px;
             border: 1px solid #ddd;
             border-radius: 10px;
+            padding: 12px;
             font-size: 16px;
-            resize: none;
+            resize: vertical;
             margin-top: 20px;
+            box-sizing: border-box;
+        }
+
+        .button-row {
+            margin-top: 15px;
+            display: flex;
+            gap: 12px;
         }
 
         button {
-            margin-top: 20px;
-            background: #e67ab1;
+            background: #c45a8d;
             color: white;
             border: none;
-            padding: 12px 22px;
+            padding: 12px 18px;
             border-radius: 10px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #d8649f;
+            opacity: 0.92;
+        }
+
+        .secondary {
+            background: #9c89b8;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Wellness Support Chat</h1>
-        <p>Share how you're feeling and get a gentle supportive response.</p>
+        <h1>Maternal Breastfeeding Support</h1>
+        <p class="subtitle">
+            Share what’s going on, and ask follow-up questions as the conversation continues.
+        </p>
+
+        {% if chat_history %}
+            {% for msg in chat_history %}
+                <div class="bubble {{ msg.role }}">
+                    <strong>{{ msg.role.capitalize() }}:</strong><br>
+                    {{ msg.content }}
+                </div>
+            {% endfor %}
+        {% endif %}
 
         <form action="/submit" method="POST">
-            <textarea name="message" placeholder="Type your message here..." required></textarea>
-            <br>
-            <button type="submit">Send</button>
+            <textarea name="message" placeholder="Type your concern or follow-up question here..." required></textarea>
+            <div class="button-row">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+
+        <form action="/reset" method="POST">
+            <div class="button-row">
+                <button type="submit" class="secondary">Start New Chat</button>
+            </div>
         </form>
     </div>
 </body>
